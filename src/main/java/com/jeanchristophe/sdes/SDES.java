@@ -386,6 +386,7 @@ public class SDES {
 		// Convert character to binary string
 		// Doesn't put the 0 at the left, stop at the last 1.
 		String binary = Integer.toBinaryString((int)c);
+		if (binary.length() > 8) throw new IllegalArgumentException("Wrong charset, characters must be encoded with 8 bit");
 		
 		BitSet b = new BitSet(8);
 		int index = 7;
@@ -429,7 +430,7 @@ public class SDES {
 		BitSet k2 = keys.get(1);
 		
 		String binary = Integer.toBinaryString((int)c);
-		
+		if (binary.length() > 8) throw new IllegalArgumentException("Wrong charset, characters must be encoded with 8 bit");
 		BitSet b = new BitSet(8);
 		int index = 7;
 		for(int i = binary.length()-1; i>=0; i--){
